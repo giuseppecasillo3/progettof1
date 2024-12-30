@@ -27,23 +27,23 @@ def Cerca_ID():
 def Cerca_piloti():
     global id_scuderia
 
-    lista_id=[]
+    presenze={}
 
     for row in results.itertuples():
         if id_scuderia==row.constructorId:
             id_pilota= row.driverId
-            if id_pilota not in lista_id:
-                lista_id.append(id_pilota)
-                for row in drivers.itertuples():
-                    if id_pilota==row.driverId:
-                        cognome_pilota= row.surname
-                        nome_pilota= row.forename
-                        race = 0
-                        for row in results.itertuples():
-                            if id_pilota==row.driverId and id_scuderia==row.constructorId:
-                                race = race + 1
-                        print(f"{nome_pilota} {cognome_pilota} ({race})")
-                    
+            if id_pilota in presenze:
+                presenze[id_pilota]+=1
+            else:
+                presenze[id_pilota]=1
+
+    presenze={k: v for k, v in sorted(presenze.items(), key=lambda item: item[1], reverse=True)}
+    for id,race in presenze.items():
+        for row in drivers.itertuples():
+            if id==row.driverId:
+                cognome_pilota= row.surname
+                nome_pilota= row.forename
+        print(f"{nome_pilota} {cognome_pilota} ({race})")
                         
                         
                     

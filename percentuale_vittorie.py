@@ -22,12 +22,6 @@ def Trova_id_pilota():
     global id_pilota
     global nome_pilota
     global cognome_pilota
-    #rimuovo accenti
-    nome_normalizzato = unicodedata.normalize('NFD', nome_pilota)
-    nome_pilota_senza_accenti = ''.join(c for c in nome_normalizzato if unicodedata.category(c) != 'Mn')
-
-    cognome_normalizzato = unicodedata.normalize('NFD', cognome_pilota)
-    cognome_pilota_senza_accenti = ''.join(c for c in cognome_normalizzato if unicodedata.category(c) != 'Mn')
 
     #cerco l'id del pilota tramite nome e cognome
     for row in drivers.itertuples():
@@ -40,10 +34,12 @@ def Trova_id_pilota():
        cognome_normalizzato_db = unicodedata.normalize('NFD', cognome_pilota_db)
        cognome_pilota_senza_accenti_db = ''.join(c for c in cognome_normalizzato_db if unicodedata.category(c) != 'Mn')
 
-       if nome_pilota_senza_accenti.lower() == nome_pilota_senza_accenti_db.lower() and cognome_pilota_senza_accenti.lower() == cognome_pilota_senza_accenti_db.lower():
+       if nome_pilota.lower() == nome_pilota_senza_accenti_db.lower() and cognome_pilota.lower() == cognome_pilota_senza_accenti_db.lower():
           id_pilota = row.driverId
 
-def Conta_vittorie():
+    
+
+def Conta_vittorie_pilota():
     global id_pilota
     global nome_pilota
     global cognome_pilota
@@ -58,7 +54,7 @@ def Conta_vittorie():
              wins = wins + 1
              
     if race == 0:
-       print("questa persona non ha mai corso in F1")
+       percentuale_vittorie = 0
     elif race > 0 and wins == 0:
        percentuale_vittorie = 0
     elif race > 0 and wins > 0:
@@ -103,13 +99,13 @@ def main():
    cognome_pilota = input("inserisci il cognome del pilota: ")
 
    Trova_id_pilota()
-   gare_vinte = Conta_vittorie()
+   gare_vinte = Conta_vittorie_pilota()
    numero_podi= Conta_Podi()
    
    if gare_vinte[1]==0 and numero_podi >0:
       print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto,\nma ha ottuneto {numero_podi} podi")
    elif gare_vinte[1]==0 and numero_podi==0:
-      print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto e non è mai andato a podio")
+      print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare in F1")
    else:
       print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare,\nha ottenuto {numero_podi} podi di cui {gare_vinte[1]} gare vinte,\ncon una percentuale di vittoria del {gare_vinte[2]}%.")
    

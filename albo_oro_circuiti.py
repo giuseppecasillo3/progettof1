@@ -21,21 +21,16 @@ def Cerca_ID():
     global nome_completo
 
     for row in circuits.itertuples():
-        nome_completo_ricerca =[]
-        nome_completo_ricerca.append(row.name)
-
-        for i in nome_completo_ricerca: 
-            if nome_pista.lower() in i.lower():
-                nome_completo = i
+        nome_completo_ricerca=row.name
+        if nome_pista.lower() in nome_completo_ricerca.lower():
+                nome_completo = nome_completo_ricerca
                 id_pista=row.circuitId
         
-        
-    
 
 def Conta_vittorie():
     global id_pista
 
-    lista_id=[]
+    vittorie={}
 
     for row in races.itertuples():
         if id_pista==row.circuitId:
@@ -43,21 +38,19 @@ def Conta_vittorie():
             for row in results.itertuples():
                 if id_gara==row.raceId and row.positionText == "1":
                     id_pilota= row.driverId
-                    if id_pilota not in lista_id:
-                        lista_id.append(id_pilota)
-                        for row in drivers.itertuples():
-                            if id_pilota==row.driverId:
-                                cognome_pilota= row.surname
-                                nome_pilota= row.forename
-                                wins = 0
-                                for row in results.itertuples():
-                                    if id_pilota==row.driverId and row.positionText == "1":
-                                        wins = wins + 1
-                                print(f"{nome_pilota} {cognome_pilota} ({wins})")
+                    if id_pilota in vittorie:
+                        vittorie[id_pilota]+=1
+                    else:   
+                        vittorie[id_pilota]= 1
 
-
-
-        
+    vittorie={k: v for k, v in sorted(vittorie.items(), key=lambda item: item[1], reverse=True)}
+    for id,wins in vittorie.items():
+        for row in drivers.itertuples():
+            if id==row.driverId:
+                cognome_pilota= row.surname
+                nome_pilota= row.forename
+        print(f"{nome_pilota} {cognome_pilota} ({wins})")
+                   
 
 def main():
     global nome_pista
@@ -70,3 +63,4 @@ def main():
     Conta_vittorie()
 
 main()
+
