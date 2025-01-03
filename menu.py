@@ -1,5 +1,6 @@
 from funzioni import *
 from progetto import*
+from prova import *
 
 def menu_scuderia():
     while True:
@@ -13,7 +14,7 @@ def menu_scuderia():
         if scelta == 1:
                 nome_scuderia = input("inserisci il nome della scuderia: ").strip()
                 Piloti_per_scuderia(nome_scuderia)
-        if scelta == 2:
+        elif scelta == 2:
             nome_scuderia = input("Inserisci il nome della scuderia: ").strip()
             nome_pista = input("Inserisci il nome del circuito: ").strip()
             circuit_id = Cerca_ID_circuito(nome_pista)
@@ -49,16 +50,19 @@ def menu_piloti():
                 nome_pilota = input("inserisci il nome del pilota: ").strip()
                 cognome_pilota = input("inserisci il cognome del pilota: ").strip()
                 Percentuale_vittorie_pilota(nome_pilota,cognome_pilota)
-        if scelta == 2:
+        elif scelta == 2:
             nome_pilota = input("Inserisci il nome del pilota: ").strip()
             cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
             nome_pista = input("Inserisci il nome del circuito: ").strip()
-            driver_id = Cerca_ID_circuito(nome_pista)
-            circuit_id = Cerca_ID_pilota(nome_pilota,cognome_pilota)
+            driver_id = cerca_id_pilota(nome_pilota, cognome_pilota)
+            circuit_id = cerca_id_circuito(nome_pista)
+
             if driver_id is not None and circuit_id is not None:
                 grafico_durata_gara(driver_id, circuit_id)
             else:
-                print("Pilota o circuito non trovato.")
+                print("Impossibile generare il grafico. Controlla che pilota e circuito esistano nei dati.")
+                  
+
         elif scelta == 3:
             nome_pilota = input("Inserisci il nome del pilota: ").strip()
             cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
@@ -71,8 +75,8 @@ def menu_piloti():
             nome_pilota = input("Inserisci il nome del pilota: ").strip()
             cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
             nome_pista = input("Inserisci il nome del circuito: ").strip()
-            driver_id = Cerca_ID_pilota(nome_pilota,cognome_pilota)
-            circuit_id = Cerca_ID_circuito(nome_pista)
+            driver_id = cerca_id_pilota(nome_pilota, cognome_pilota)
+            circuit_id = cerca_id_circuito(nome_pista)
             if driver_id is not None:
                 grafico_andamento_posizione_circuito(driver_id, circuit_id)
             else:

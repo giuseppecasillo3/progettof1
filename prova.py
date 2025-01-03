@@ -102,15 +102,15 @@ def grafico_durata_gara(driver_id, circuit_id):
 
 
 
-nome_pilota = input("Inserisci il nome del pilota: ").strip()
-cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
-nome_pista = input("Inserisci il nome del circuito: ").strip()
+# nome_pilota = input("Inserisci il nome del pilota: ").strip()
+# cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
+# nome_pista = input("Inserisci il nome del circuito: ").strip()
 
 
-driver_id = cerca_id_pilota(nome_pilota, cognome_pilota)
-circuit_id = cerca_id_circuito(nome_pista)
+# driver_id = cerca_id_pilota(nome_pilota, cognome_pilota)
+# circuit_id = cerca_id_circuito(nome_pista)
 
-if driver_id is not None and circuit_id is not None:
-    grafico_durata_gara(driver_id, circuit_id)
-else:
-    print("Impossibile generare il grafico. Controlla che pilota e circuito esistano nei dati.")
+# if driver_id is not None and circuit_id is not None:
+#     grafico_durata_gara(driver_id, circuit_id)
+# else:
+#     print("Impossibile generare il grafico. Controlla che pilota e circuito esistano nei dati.")
