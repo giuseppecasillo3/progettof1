@@ -47,7 +47,7 @@ def Conta_vittorie_per_circuito(id_pista):
             if id==row.driverId:
                 cognome_pilota= row.surname
                 nome_pilota= row.forename
-        print(f"{nome_pilota} {cognome_pilota} ({wins})")
+        print(f"\n{nome_pilota} {cognome_pilota} ({wins})")
 
 
 def Cerca_ID_scuderia(nome_scuderia):
@@ -77,7 +77,7 @@ def Cerca_piloti_per_scuderia(id_scuderia):
             if id==row.driverId:
                 cognome_pilota= row.surname
                 nome_pilota= row.forename
-        print(f"{nome_pilota} {cognome_pilota} ({race})")
+        print(f"\n{nome_pilota} {cognome_pilota} ({race})")
 
 def Cerca_ID_pilota(nome_pilota,cognome_pilota):
 
@@ -134,11 +134,11 @@ def Percentuale_vittorie_pilota(nome_pilota, cognome_pilota):
     numero_podi= Conta_Podi(id_pilota)
    
     if gare_vinte[1]==0 and numero_podi >0:
-       print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto,\nma ha ottuneto {numero_podi} podi")
+       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto,\nma ha ottuneto {numero_podi} podi")
     elif gare_vinte[1]==0 and numero_podi==0:
-       print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare in F1")
+       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare in F1")
     else:
-       print(f"{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare,\nha ottenuto {numero_podi} podi di cui {gare_vinte[1]} gare vinte,\ncon una percentuale di vittoria del {gare_vinte[2]}%.")
+       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare,\nha ottenuto {numero_podi} podi di cui {gare_vinte[1]} gare vinte,\ncon una percentuale di vittoria del {gare_vinte[2]}%.")
 
 def Piloti_per_scuderia(nome_scuderia):
     id_scuderia= Cerca_ID_scuderia(nome_scuderia)
