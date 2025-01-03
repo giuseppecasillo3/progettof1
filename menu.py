@@ -3,13 +3,13 @@ from progetto import*
 
 def menu_scuderia():
     while True:
-        print("Menu:")
+        print("\nMenu:")
         print("1. Piloti che hanno corso nella scuderia")
         print("2. Andamento punti scuderia su un circuito specifico")
         print("3. Andamento punti scuderia nelle stagioni")
         print("4. Torna indietro")
         print("5. Esci")
-        scelta = int(input("Inserisci il numero corrispondente all'operazione desiderata: "))
+        scelta = int(input("\nInserisci il numero corrispondente all'operazione desiderata: "))
         if scelta == 1:
                 nome_scuderia = input("inserisci il nome della scuderia: ").strip()
                 Piloti_per_scuderia(nome_scuderia)
@@ -36,7 +36,7 @@ def menu_scuderia():
 
 def menu_piloti():
     while True:
-        print("Menu:")
+        print("\nMenu:")
         print("1. 1 Percentuale vittorie e podi del pilota")
         print("2. Andamento durata gara nel tempo per un pilota e un circuito specifici")
         print("3. Andamento durata pit stop nel tempo per un pilota")
@@ -70,6 +70,7 @@ def menu_piloti():
         elif scelta == 4:
             nome_pilota = input("Inserisci il nome del pilota: ").strip()
             cognome_pilota = input("Inserisci il cognome del pilota: ").strip()
+            nome_pista = input("Inserisci il nome del circuito: ").strip()
             driver_id = Cerca_ID_pilota(nome_pilota,cognome_pilota)
             circuit_id = Cerca_ID_circuito(nome_pista)
             if driver_id is not None:
@@ -88,8 +89,8 @@ def menu_piloti():
             menu()
         elif scelta == 7:
             break
-        else:
-            print("Scelta non valida. Riprova.")
+        # else:
+        #     print("Scelta non valida. Riprova.")
 
 
 def menu():
@@ -97,8 +98,14 @@ def menu():
     while True:
         scelta_categoria=int(input("\nChe categoria vuoi selezionare?\n1.Circuiti,\n2.Scuderie,\n3.Piloti,\n4.Gara,\n5.uscire,\n(inserire numero): "))
         if scelta_categoria==1:
-            nome_circuito = input("inserisci il nome del circuito: ").strip()
-            Albo_oro_circuito(nome_circuito)
+            scelta= int(input("\n1. Albo d'oro di un circuito\n2. Torna indietro\n3. Esci\nInserisci il numero corrispondente all'operazione desiderata: "))
+            if scelta==1:
+              nome_circuito = input("\ninserisci il nome del circuito: ").strip()
+              Albo_oro_circuito(nome_circuito)
+            elif scelta==2:
+                menu()
+            elif scelta==3:
+                break
 
         elif scelta_categoria==2:
             menu_scuderia()
