@@ -1,6 +1,9 @@
 from funzioni import *
 from progetto import*
 from prova import *
+from pole_winner import *
+from posizioni_guadagnate import *
+
 
 def menu_scuderia():
     while True:
@@ -38,7 +41,7 @@ def menu_scuderia():
 def menu_piloti():
     while True:
         print("\nMenu:")
-        print("1. 1 Percentuale vittorie e podi del pilota")
+        print("1. Percentuale vittorie e podi del pilota")
         print("2. Andamento durata gara nel tempo per un pilota e un circuito specifici")
         print("3. Andamento durata pit stop nel tempo per un pilota")
         print("4. Andamento posizione finale nel tempo per un pilota su un circuito specifico")
@@ -96,6 +99,28 @@ def menu_piloti():
         # else:
         #     print("Scelta non valida. Riprova.")
 
+def menu_gare():
+    while True:
+        print("\nMenu:")
+        print("1. Vittoria partendo dalla Pole Position")
+        print("2. Delta posizioni di un pilota in una gara")
+        print("3. Vincitore di una gara")
+        print("4. Torna indietro")
+        print("5. Esci")
+        scelta = int(input("Inserisci il numero corrispondente all'operazione desiderata: "))
+        if scelta == 1: 
+            pole_winner()
+        elif scelta == 2:
+            differenza_posizioni()
+        elif scelta == 3:
+            ...
+        elif scelta == 4:
+            menu()
+        elif scelta == 5:
+            break 
+
+
+
 
 def menu():
 
@@ -116,6 +141,9 @@ def menu():
             
         elif scelta_categoria==3:
             menu_piloti()
+        
+        elif scelta_categoria==4:
+            menu_gare()
 
         elif scelta_categoria==5:
             print("uscita dal programma")
