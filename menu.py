@@ -113,7 +113,7 @@ def menu_gare():
         elif scelta == 2:
             differenza_posizioni()
         elif scelta == 3:
-            ...
+            vincitore_gara() 
         elif scelta == 4:
             menu()
         elif scelta == 5:

@@ -97,7 +97,6 @@ def differenza_posizioni():
             else:  # Se la posizione è la stessa della qualifica
                 print(f"Il pilota ha mantenuto la stessa posizione di qualifica")
 
-differenza_posizioni()
 
 
 
@@ -105,11 +104,42 @@ differenza_posizioni()
 
 
 
-def trova_pilota_vincitore():
+def vincitore_gara():
     anno = int(input("Inserisci l'anno: \n"))
     nome_pista = input("Inserisci nome del Gran Premio: \n")
     id_circuito = cerca_id_circuito(nome_pista)
+    
     if not id_circuito:
         print("Circuito non trovato.")
         return
 
+    gara_id = trova_race_id_2(anno, id_circuito)
+    
+    if not gara_id:
+        print("Gara non trovata.")
+        return
+
+    
+    race_results = results[results['raceId'] == gara_id]
+
+    
+
+    if race_results.empty:
+        print("Nessun risultato trovato per questa gara.")
+        return
+
+    race_results.loc[:, 'position'] = pd.to_numeric(race_results['position'], errors='coerce')
+    winner = race_results[race_results['position'] == 1]
+
+    if winner.empty:
+        print("Nessun vincitore trovato.")
+    else:
+        
+        winner_driver_id = winner['driverId'].values[0]
+        
+        
+        winner_name = drivers[drivers['driverId'] == winner_driver_id]['forename'].values[0] + ' ' + drivers[drivers['driverId'] == winner_driver_id]['surname'].values[0]
+        
+        print(f"Il vincitore della gara è: {winner_name}")
+
+vincitore_gara()
