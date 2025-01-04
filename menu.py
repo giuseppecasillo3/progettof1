@@ -1,6 +1,6 @@
 from funzioni import *
 from progetto import*
-from prova import *
+from cerca import *
 from pole_winner import *
 from posizioni_guadagnate import *
 
