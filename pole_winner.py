@@ -85,9 +85,8 @@ def trova_race_id_2(anno, id_circuito):
             return row.raceId
     return None
 
-def pole_winner():
-    anno = int(input("Inserisci l'anno: \n"))
-    nome_pista = input("Inserisci nome del Gran Premio: \n")
+def pole_winner(anno, nome_pista):
+
     id_circuito = cerca_id_circuito(nome_pista)
     
     if not id_circuito:
@@ -117,6 +116,6 @@ def pole_winner():
             print(f"{driver_name} non ha vinto la gara partendo da primo")
 
 # Chiamata alla funzione
-pole_winner()
+
 
 

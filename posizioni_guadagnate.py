@@ -47,17 +47,15 @@ def Trova_id_pilota(nome_pilota, cognome_pilota):
             id_pilota = row.driverId
             return
 
-def differenza_posizioni():
-    anno = int(input("Inserisci l'anno: \n"))
-    nome_pista = input("Inserisci nome del Gran Premio: \n")
+def differenza_posizioni(anno, nome_pista, nome_pilota, cognome_pilota):
+
     id_circuito = cerca_id_circuito(nome_pista)
     
     if not id_circuito:
         print("Circuito non trovato.")
         return
 
-    nome_pilota = input("Inserisci nome pilota: \n")
-    cognome_pilota = input("Inserisci cognome pilota: \n")
+
     
     # Trova id del pilota
     Trova_id_pilota(nome_pilota, cognome_pilota)
@@ -104,9 +102,8 @@ def differenza_posizioni():
 
 
 
-def vincitore_gara():
-    anno = int(input("Inserisci l'anno: \n"))
-    nome_pista = input("Inserisci nome del Gran Premio: \n")
+def vincitore_gara(anno, nome_pista):
+
     id_circuito = cerca_id_circuito(nome_pista)
     
     if not id_circuito:
@@ -142,4 +139,3 @@ def vincitore_gara():
         
         print(f"Il vincitore della gara è: {winner_name}")
 
-vincitore_gara()
