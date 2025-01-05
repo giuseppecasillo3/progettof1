@@ -34,10 +34,12 @@ Data la natura del progetto, fortemente orientata all'elaborazione dati e alle f
 ### Diagramma dei Casi d'Uso
 Nel diagramma dei casi d'uso abbiamo rappresentato tutte le funzionalità disponibili all'utente nel sistema. Nonostante ci siano solamente quattro possibili input (Pilota, Scuderia, Gara e Circuito), abbiamo scelto di ripetere più volte le relazioni <<include>> per ogni funzionalità. Questa decisione di design, sebbene possa sembrare ridondante, è stata presa per garantire una maggiore chiarezza e leggibilità del diagramma. In questo modo, ogni caso d'uso principale è direttamente collegato al suo caso d'uso incluso, rendendo immediatamente comprensibile il flusso di ogni funzionalità senza dover seguire relazioni multiple o intrecciate.
 
+![alt text](Diagramma_dei_casi.png)
+
 ### Diagramma degli Stati
 Sebbene il progetto non si presti naturalmente a una rappresentazione tramite diagramma degli stati classico, abbiamo cercato di modellare il flusso delle operazioni e le transizioni tra le diverse funzionalità del programma in modo da rispettare i principi fondamentali della progettazione state-based.
 
- ![alt text](image-1.png)
+ ![alt text](Diagramma_di_stato.png)
 
 ## 🔧 Requisiti e Installazione
 I requisiti sono elencati nel file `requirements.txt`. Per installare le dipendenze necessarie:
