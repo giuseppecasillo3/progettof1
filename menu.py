@@ -36,7 +36,7 @@ def menu_scuderia():
         elif scelta == 4:
             menu()
         elif scelta == 5:
-            break
+            exit()
 
 def menu_piloti():
     while True:
@@ -95,9 +95,8 @@ def menu_piloti():
         elif scelta == 6:
             menu()
         elif scelta == 7:
-            break
-        # else:
-        #     print("Scelta non valida. Riprova.")
+            exit()
+
 
 def menu_gare():
     while True:
@@ -125,9 +124,22 @@ def menu_gare():
         elif scelta == 4:
             menu()
         elif scelta == 5:
-            break 
+            exit()
 
-
+def menu_circuiti():
+    while True:
+        print("\nMenu:")
+        print("1. Albo d'oro di un circuito")
+        print("2. Torna indietro")
+        print("3. Esci")
+        scelta = int(input("Inserisci il numero corrispondente all'operazione desiderata: "))
+        if scelta == 1:
+            nome_circuito = input("Inserisci il nome del circuito: ").strip()
+            Albo_oro_circuito(nome_circuito)
+        elif scelta == 2:
+            menu()
+        elif scelta == 3:
+            exit()
 
 
 def menu():
@@ -135,14 +147,7 @@ def menu():
     while True:
         scelta_categoria=int(input("\nChe categoria vuoi selezionare?\n1.Circuiti,\n2.Scuderie,\n3.Piloti,\n4.Gara,\n5.uscire,\n(inserire numero): "))
         if scelta_categoria==1:
-            scelta= int(input("\n1. Albo d'oro di un circuito\n2. Torna indietro\n3. Esci\nInserisci il numero corrispondente all'operazione desiderata: "))
-            if scelta==1:
-              nome_circuito = input("\ninserisci il nome del circuito: ").strip()
-              Albo_oro_circuito(nome_circuito)
-            elif scelta==2:
-                menu()
-            elif scelta==3:
-                break
+            menu_circuiti()
 
         elif scelta_categoria==2:
             menu_scuderia()
