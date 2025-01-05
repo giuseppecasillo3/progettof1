@@ -29,6 +29,7 @@ Per quanto riguarda i diagrammi UML richiesti dal corso:
 
 ### Diagramma delle Classi
 Data la natura del progetto, fortemente orientata all'elaborazione dati e alle funzioni di analisi, la rappresentazione attraverso un diagramma delle classi tradizionale risulterebbe forzata. Tuttavia, abbiamo mantenuto una struttura modulare del codice che riflette i principi della programmazione orientata agli oggetti.
+ ![alt text](diagramma_di_classi.png)
 
 ### Diagramma dei Casi d'Uso
 Nel diagramma dei casi d'uso abbiamo rappresentato tutte le funzionalità disponibili all'utente nel sistema. Nonostante ci siano solamente quattro possibili input (Pilota, Scuderia, Gara e Circuito), abbiamo scelto di ripetere più volte le relazioni <<include>> per ogni funzionalità. Questa decisione di design, sebbene possa sembrare ridondante, è stata presa per garantire una maggiore chiarezza e leggibilità del diagramma. In questo modo, ogni caso d'uso principale è direttamente collegato al suo caso d'uso incluso, rendendo immediatamente comprensibile il flusso di ogni funzionalità senza dover seguire relazioni multiple o intrecciate.
