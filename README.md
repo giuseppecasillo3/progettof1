@@ -36,6 +36,8 @@ Nel diagramma dei casi d'uso abbiamo rappresentato tutte le funzionalità dispon
 ### Diagramma degli Stati
 Sebbene il progetto non si presti naturalmente a una rappresentazione tramite diagramma degli stati classico, abbiamo cercato di modellare il flusso delle operazioni e le transizioni tra le diverse funzionalità del programma in modo da rispettare i principi fondamentali della progettazione state-based.
 
+ ![alt text](image-1.png)
+
 ## 🔧 Requisiti e Installazione
 I requisiti sono elencati nel file `requirements.txt`. Per installare le dipendenze necessarie:
 
