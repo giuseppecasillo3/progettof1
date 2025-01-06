@@ -160,6 +160,6 @@ def menu():
 
         elif scelta_categoria==5:
             print("uscita dal programma")
-            break
+            exit()
 
 menu()
