@@ -58,9 +58,9 @@ def grafico_durata_gara(driver_id, circuit_id):
     years, durations = zip(*race_durations)
     
     # Print delle durate per ogni anno
-    print("Durata della gara per ogni anno:")
-    for year, duration in race_durations:
-        print(f"Anno {year}: {duration:.2f} secondi")
+    # print("Durata della gara per ogni anno:")
+    # for year, duration in race_durations:
+    #     print(f"Anno {year}: {duration:.2f} secondi")
     
     # Creazione del grafico
     plt.figure(figsize=(10, 6))
@@ -102,9 +102,9 @@ def grafico_punti_scuderia(constructor_id, circuit_id):
     years, points = zip(*points_by_season)
     
     # Print dei punti per ogni anno
-    print("Punti accumulati per ogni anno:")
-    for year, point in points_by_season:
-        print(f"Anno {year}: {point:.2f} punti")
+    # print("Punti accumulati per ogni anno:")
+    # for year, point in points_by_season:
+    #     print(f"Anno {year}: {point:.2f} punti")
     
     # Creazione del grafico
     plt.figure(figsize=(10, 6))

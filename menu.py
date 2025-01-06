@@ -20,7 +20,7 @@ def menu_scuderia():
         elif scelta == 2:
             nome_scuderia = input("Inserisci il nome della scuderia: ").strip()
             nome_pista = input("Inserisci il nome del circuito: ").strip()
-            circuit_id = Cerca_ID_circuito(nome_pista)
+            circuit_id = cerca_id_circuito(nome_pista)
             constructor_id = Cerca_ID_scuderia(nome_scuderia)
             if constructor_id is not None and circuit_id is not None:
                 grafico_punti_scuderia(constructor_id, circuit_id)
