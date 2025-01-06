@@ -92,7 +92,7 @@ def Cerca_ID_pilota(nome_pilota,cognome_pilota):
        cognome_normalizzato_db = unicodedata.normalize('NFD', cognome_pilota_db)
        cognome_pilota_senza_accenti_db = ''.join(c for c in cognome_normalizzato_db if unicodedata.category(c) != 'Mn')
 
-       if nome_pilota.lower() == nome_pilota_senza_accenti_db.lower() and cognome_pilota.lower() == cognome_pilota_senza_accenti_db.lower():
+       if nome_pilota.lower().strip() == nome_pilota_senza_accenti_db.lower().strip() and cognome_pilota.lower().strip() == cognome_pilota_senza_accenti_db.lower().strip():
           id_pilota = row.driverId
     return id_pilota
 

@@ -47,30 +47,30 @@ seasons = pd.read_csv("seasons.csv")
 
 
 
-def trova_race_id():
+# def trova_race_id():
         
 
         
-        anno = int(input("Scegli l'anno:\n"))
+#         anno = int(input("Scegli l'anno:\n"))
         
         
-        nome = input("Scegli il nome del circuito: \n")
+#         nome = input("Scegli il nome del circuito: \n")
 
         
         
       
-        risultati_filtrati = races[races['year'] == anno]  
-        risultati_filtrati = risultati_filtrati[risultati_filtrati['name'].str.contains(nome, case=False, na=False)]
-        race_Id = risultati_filtrati['raceId']
+#         risultati_filtrati = races[races['year'] == anno]  
+#         risultati_filtrati = risultati_filtrati[risultati_filtrati['name'].str.contains(nome, case=False, na=False)]
+#         race_Id = risultati_filtrati['raceId']
         
 
     
-        if risultati_filtrati.empty:
-            print("Nessuna gara trovata per l'anno e il nome del circuito specificati.")
-        else:
-            print(race_Id)
+#         if risultati_filtrati.empty:
+#             print("Nessuna gara trovata per l'anno e il nome del circuito specificati.")
+#         else:
+#             print(race_Id)
 
-        return risultati_filtrati
+#         return risultati_filtrati
 
 # trova_race_id()
 def cerca_id_circuito(nome_pista):
