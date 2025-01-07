@@ -17,13 +17,16 @@ seasons = pd.read_csv("seasons.csv")
 
 
 def Cerca_ID_circuito(nome_pista):
-
+    id_pista=0
     for row in circuits.itertuples():
         nome_completo_ricerca=row.name
         if nome_pista.lower() in nome_completo_ricerca.lower():
                 nome_completo = nome_completo_ricerca
                 id_pista=row.circuitId
-    return id_pista, nome_completo
+    if id_pista==0:
+        return id_pista, nome_pista
+    else:
+        return id_pista, nome_completo
 
 
 def Conta_vittorie_per_circuito(id_pista):
@@ -51,7 +54,7 @@ def Conta_vittorie_per_circuito(id_pista):
 
 
 def Cerca_ID_scuderia(nome_scuderia):
-
+    id_scuderia=0
     for row in constructors.itertuples():
         if nome_scuderia.lower() == row.name.lower():
             id_scuderia=row.constructorId
@@ -80,7 +83,7 @@ def Cerca_piloti_per_scuderia(id_scuderia):
         print(f"\n{nome_pilota} {cognome_pilota} ({race})")
 
 def Cerca_ID_pilota(nome_pilota,cognome_pilota):
-
+    id_pilota=0
     #cerco l'id del pilota tramite nome e cognome
     for row in drivers.itertuples():
        nome_pilota_db = row.forename
@@ -130,21 +133,30 @@ def Conta_Podi(id_pilota):
 
 def Percentuale_vittorie_pilota(nome_pilota, cognome_pilota):
     id_pilota= Cerca_ID_pilota(nome_pilota,cognome_pilota)
-    gare_vinte = Conta_vittorie_pilota(id_pilota)
-    numero_podi= Conta_Podi(id_pilota)
-   
-    if gare_vinte[1]==0 and numero_podi >0:
-       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto,\nma ha ottuneto {numero_podi} podi")
-    elif gare_vinte[1]==0 and numero_podi==0:
-       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare in F1")
+    if id_pilota==0:
+        print("pilota non trovato")
     else:
-       print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare,\nha ottenuto {numero_podi} podi di cui {gare_vinte[1]} gare vinte,\ncon una percentuale di vittoria del {gare_vinte[2]}%.")
+        gare_vinte = Conta_vittorie_pilota(id_pilota)
+        numero_podi= Conta_Podi(id_pilota)
+    
+        if gare_vinte[1]==0 and numero_podi >0:
+            print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare ma non ha mai vinto,\nma ha ottuneto {numero_podi} podi")
+        elif gare_vinte[1]==0 and numero_podi==0:
+            print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare in F1")
+        else:
+            print(f"\n{nome_pilota} {cognome_pilota} ha corso {gare_vinte[0]} gare,\nha ottenuto {numero_podi} podi di cui {gare_vinte[1]} gare vinte,\ncon una percentuale di vittoria del {gare_vinte[2]}%.")
 
 def Piloti_per_scuderia(nome_scuderia):
     id_scuderia= Cerca_ID_scuderia(nome_scuderia)
-    Cerca_piloti_per_scuderia(id_scuderia)
+    if id_scuderia==0:
+        print("Scuderia non trovata")
+    else:
+        Cerca_piloti_per_scuderia(id_scuderia)
 
 def Albo_oro_circuito(nome_pista):
     id_pista, nome_completo = Cerca_ID_circuito(nome_pista)
-    print(f"\nAlbo d'oro del circuito {nome_completo}")
-    Conta_vittorie_per_circuito(id_pista)
+    if id_pista==0:
+        print("circuito non trovato")
+    else:   
+        print(f"\nAlbo d'oro del circuito {nome_completo}")
+        Conta_vittorie_per_circuito(id_pista)

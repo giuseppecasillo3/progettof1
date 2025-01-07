@@ -108,18 +108,18 @@ def menu_gare():
         print("5. Esci")
         scelta = int(input("Inserisci il numero corrispondente all'operazione desiderata: "))
         if scelta == 1: 
-            anno = int(input("Inserisci l'anno: \n"))
-            nome_pista = input("Inserisci nome del Gran Premio: \n")
+            anno = int(input("Inserisci l'anno: "))
+            nome_pista = input("Inserisci nome del Gran Premio: ")
             pole_winner(anno,nome_pista)
         elif scelta == 2:
-            anno = int(input("Inserisci l'anno: \n"))
-            nome_pista = input("Inserisci nome del Gran Premio: \n")
-            nome_pilota = input("Inserisci nome pilota: \n")
-            cognome_pilota = input("Inserisci cognome pilota: \n")
+            anno = int(input("Inserisci l'anno: "))
+            nome_pista = input("Inserisci nome del Gran Premio: ")
+            nome_pilota = input("Inserisci nome pilota: ")
+            cognome_pilota = input("Inserisci cognome pilota: ")
             differenza_posizioni(anno,nome_pista,nome_pilota,cognome_pilota)
         elif scelta == 3:
-            anno = int(input("Inserisci l'anno: \n"))
-            nome_pista = input("Inserisci nome del Gran Premio: \n")
+            anno = int(input("Inserisci l'anno: "))
+            nome_pista = input("Inserisci nome del Gran Premio: ")
             vincitore_gara(anno,nome_pista) 
         elif scelta == 4:
             menu()
