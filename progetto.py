@@ -253,9 +253,9 @@ def grafico_andamento_posizione_circuito(driver_id, circuit_id):
     plt.show()
 
 # Richiamo delle funzioni per provarle
-driver_id = 844       # Sostituisci con l'ID del pilota che vuoi analizzare
-constructor_id = 1   # Sostituisci con l'ID della scuderia che vuoi analizzare
-circuit_id = 1      # Sostituisci con l'ID del circuito che vuoi analizzare
+# driver_id = 844       # Sostituisci con l'ID del pilota che vuoi analizzare
+# constructor_id = 1   # Sostituisci con l'ID della scuderia che vuoi analizzare
+# circuit_id = 1      # Sostituisci con l'ID del circuito che vuoi analizzare
 
 # Prova della funzione per la durata delle gare
 #grafico_durata_gara(driver_id, circuit_id)
